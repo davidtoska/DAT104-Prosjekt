@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import utils.LiveFeedbackUtil;
+import utils.DummyDataLiveFeedback;
 
 @WebServlet(name = "LiveFeedbackServlet", urlPatterns = {"/liveFeedback"})
 public class LiveFeedbackServlet extends HttpServlet {
@@ -22,11 +22,10 @@ public class LiveFeedbackServlet extends HttpServlet {
         
         HttpSession session = request.getSession(true);
         
-        List<Integer> tbm = LiveFeedbackUtil.hentDummyTilbakemeldinger();
+        List<Integer> tbm = DummyDataLiveFeedback.hentDummyTilbakemeldinger();
         java.util.Collections.sort(tbm);
-        tbm = LiveFeedbackUtil.lagFrekvensTabell(tbm, 60);
-        //session.setAttribute("data", tbm);
-        request.setAttribute("data", tbm);
+        //session.setAttribute("data", tbm); 60 == antall minutter skalbli en variabel.
+        request.setAttribute("data", DummyDataLiveFeedback.lagFrekvensTabell(tbm, 60));
         request.getRequestDispatcher("WEB-INF/LiveFeedback.jsp").forward(request, response);
                 
     }

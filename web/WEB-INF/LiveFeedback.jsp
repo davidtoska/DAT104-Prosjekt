@@ -18,7 +18,7 @@
         var frekvensTabell = "${requestScope.data}";
         //Frekvenstabellen er sortert i minutter. 20 slotter. 3, betyr 3 min bredde.
         
-    	var dataArray = formatData(frekvensTabell, 20, 3);
+    	var dataArray = formatData(frekvensTabell, 15, 4);
         
         var button = document.getElementById('change-chart');
         var chartDiv = document.getElementById('chart_div');
@@ -45,7 +45,7 @@
         var classicOptions = {
           width: 1500,
           series: {
-            0: {targetAxisIndex: 0},
+            0: {targetAxisIndex: 0}
             //1: {targetAxisIndex: 1}
           },
           title: 'Tilbakemeldinger',
@@ -75,7 +75,9 @@
           button.innerText = 'Change to Material';
           button.onclick = drawMaterialChart;
         }
-        
+        //////////////////////////////////////////////////////////////////////
+        /////////// FORMATERINGS-METODER /////////////////////////////////////
+        ///////////////////////////////////////////////////////////////////////
         /*
          * frekvensTabell: streng fra servlet.
          * antallSlotter: hvor mange slotter vi skal ha i diagrammet.

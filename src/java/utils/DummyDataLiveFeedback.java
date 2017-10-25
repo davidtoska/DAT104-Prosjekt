@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Random;
 
 
-public class LiveFeedbackUtil {
+public class DummyDataLiveFeedback {
     
     private static final Integer ANTALL_MULIGE_TILBAKEMELDINGER = 3;
 
@@ -38,8 +38,6 @@ public class LiveFeedbackUtil {
             tbm.add(r.nextInt(ANTALL_SLOTTER * ANTALL_MULIGE_TILBAKEMELDINGER));
         }
         
-        
-
         return tbm;
     }
     
